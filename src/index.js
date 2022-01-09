@@ -4,6 +4,6 @@ import './index.css';
 import App from "./App";
 
 ReactDOM.render(
-     <App authorized={true}/>,
+  <App authorized={true}/>,
   document.getElementById("root")
 );
