@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import './App.css';
 import kazelabad from "./kazelabad1.png";
 
@@ -16,6 +16,10 @@ function Header(props) {
 
 function Main(props) {
   const [liked, setLike] = useState("liked");
+  const [checked, toggle] = useReducer(
+    (checked) => !checked,
+    false
+  );
   return (
     <section>
       <p>Blajduwbidaiduebsisykd</p>
@@ -28,6 +32,14 @@ function Main(props) {
         <button onClick={() => setLike("disliked")}>
           dislike
         </button>
+      </section>
+      <section>
+        <input
+          type="checkbox"
+          value="checked"
+          onChange={toggle}
+        />
+        <p>{checked ? "checked" : "not checked"}</p>
       </section>
       <ul style={{textAlign: "left"}}>
         {props.dishes.map((dish) => (
